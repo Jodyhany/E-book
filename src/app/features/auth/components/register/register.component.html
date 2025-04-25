@@ -1,0 +1,40 @@
+<p class="text-gray-500 text-2xl font-semibold ">Create new acccount</p>
+<p class="text-3xl my-5 w-full font-bold">Register</p>
+<form class="my-20 flex flex-col" [formGroup]="registerForm"  (submit)="createUser(registerForm)">
+    <section class="flex ">
+        <section class="flex flex-col mx-5">
+            <label for="fristname" class="font-bold">First Name</label>
+            <input  formControlName="first_name" id="fristname" name="first_name"  type="fristname" class="w-full my-3 p-2 bg-sky-100" >
+        </section>
+        <section class="flex flex-col">
+            <label for="lastname" class="font-bold">Last Name</label>
+            <input   id="lastname" formControlName="last_name" name="last_name"  type="lastname" class="w-full my-3 p-2 bg-sky-100" >
+        </section>
+    </section>
+    <section class="flex flex-col">
+        <label for="Email" class="font-bold">E-mail</label>
+        <input   id="email" name="email" formControlName="email"  type="email" class="w-full my-3 p-2 bg-sky-100" >
+    </section>
+    <section class="flex flex-col my-7">
+        <label for="password" class="font-bold">Password</label>
+        <section class="w-full my-3 p-2 bg-sky-100 flex justify-between">
+            <input id="password"  name="password" formControlName="password" [type]="Showpass?'text':'password'" class="p-1 w-full">
+            <button class="text-end cursor-pointer" type="button" (click)="Showpass=!Showpass">{{Showpass?'Hide':'show'}}</button>
+        </section>
+    </section>
+    <section class="flex flex-col">
+        <label for="Email" class="font-bold">Role</label>
+        <select name="Role" id="" class="p-1" formControlName="role">
+            <option value="none" disabled selected>Select your role</option>
+            <option value="Admin" >Admin</option>
+            <option value="Customer" >Customer</option>
+        </select>
+    </section>
+    <section class="my-5">
+        <button class= "cursor-pointer w-full bg-[rgba(239,107,74,1)] p-2 text-white rounded-lg hover:opacity-90 transition my-3" type="submit"> Register</button>
+            <a routerLink="/auth/login" class="w-full border font-bold text-[rgba(98,81,221,1)] p-2 rounded-lg hover:opacity-90 transition block text-center">Login</a>
+    </section>
+</form>
+
+
+<!-- test@1S -->

@@ -1,0 +1,28 @@
+<p class="text-gray-500 text-2xl font-semibold ">Welcome back!</p>
+<p class="text-3xl my-5 w-full font-bold">Login to your account</p>
+<form class="my-20 flex flex-col" [formGroup]="loginform" (submit)="LogInUser(loginform)" >
+    <section class="flex flex-col">
+        <label for="Email" class="font-bold">E-mail</label>
+        <input   id="email" name="email" formControlName="email" type="email" class="w-full my-3 p-2 bg-sky-100" >
+    </section>
+    <section class="flex flex-col my-7">
+        <label for="password" class="font-bold">Password</label>
+        <section class="w-full my-3 p-2 bg-sky-100 flex justify-between">
+            <input id="password" formControlName="password" name="password" [type]="ShowPass?'text':'password'" class="p-1 w-full">
+            <button class="text-end cursor-pointer" type="button" (click)="ShowPass=!ShowPass">{{ShowPass?'Hide':'show'}}</button>
+        </section>
+        <a  class="text-violet-700" routerLink="/auth/forgetPassword">forget password?</a>
+        <a class="my-5" routerLink="/auth/changePassword">change password?</a>
+
+    </section>
+    <article class="text-violet-700 cursor-pointer">
+        <input class="mx-3 accent-[rgba(98,81,221,1)] cursor-pointer" type="checkbox" id="Remember"> 
+        <label for="Remember">Remember Me</label>
+    </article>
+    <section class="my-5">
+        <button class= "cursor-pointer w-full bg-[rgba(239,107,74,1)] p-2 text-white rounded-lg hover:opacity-90 transition my-3" type="submit">Login</button>
+            <a routerLink="/auth/register" class="w-full border font-bold text-[rgba(98,81,221,1)] p-2 rounded-lg hover:opacity-90 transition block text-center">Register</a>
+    </section>
+</form>
+
+
