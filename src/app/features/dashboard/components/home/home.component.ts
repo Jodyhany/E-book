@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { CategoriesComponent } from "../categories/categories.component";
 import { FeaturedBooksComponent } from "../featured-books/featured-books.component";
+import { LatestArticlesComponent } from "../latest-articles/latest-articles.component";
+import { SharedRoutingModule } from '../../../shared/shared-routing.module';
+import { SharedModule } from '../../../shared/shared.module';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
-  imports: [CategoriesComponent, FeaturedBooksComponent]
+  imports: [CategoriesComponent, FeaturedBooksComponent, LatestArticlesComponent,SharedModule]
 })
 export class HomeComponent {
 

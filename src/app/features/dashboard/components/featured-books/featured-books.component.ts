@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { BooksDataService } from '../../services/books-data.service';
 
 @Component({
   selector: 'app-featured-books',
   imports: [],
   templateUrl: './featured-books.component.html',
-  styleUrl: './featured-books.component.scss'
+  styleUrl: './featured-books.component.scss',
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class FeaturedBooksComponent implements OnInit {
   constructor(private _booksData:BooksDataService){}
@@ -13,7 +14,7 @@ export class FeaturedBooksComponent implements OnInit {
   GetfeaturedBooks(){
     this._booksData.GetFeaturedbook().subscribe({
       next:(res)=>{
-        this.featuredBooks=res
+        this.featuredBooks=res.data
         console.log(res)},
       error:(err)=>{console.log(err)}
     })
