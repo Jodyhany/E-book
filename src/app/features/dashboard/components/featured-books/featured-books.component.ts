@@ -1,12 +1,13 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 import { BooksDataService } from '../../services/books-data.service';
+import { SharedModule } from '../../../shared/shared.module';
 
 @Component({
   selector: 'app-featured-books',
-  imports: [],
+  imports: [SharedModule],
   templateUrl: './featured-books.component.html',
   styleUrl: './featured-books.component.scss',
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+
 })
 export class FeaturedBooksComponent implements OnInit {
   constructor(private _booksData:BooksDataService){}
@@ -19,8 +20,19 @@ export class FeaturedBooksComponent implements OnInit {
       error:(err)=>{console.log(err)}
     })
   }
+  AddtoCard(obj:any){
+    this._booksData.AddCart(obj).subscribe({
+      next:(res)=>console.log(res),
+      error:(err)=>console.log(err)
+    })
+  }
   ngOnInit(): void {
     this.GetfeaturedBooks()
   }
 
 }
+
+// عايز ارمي الرد في {}
+// (payload:{
+  // book:string,
+  // quantity:number

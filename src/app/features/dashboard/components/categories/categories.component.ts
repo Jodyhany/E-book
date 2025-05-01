@@ -1,4 +1,4 @@
-import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { SharedModule } from '../../../shared/shared.module';
 import { BooksDataService } from '../../services/books-data.service';
 
@@ -7,7 +7,6 @@ import { BooksDataService } from '../../services/books-data.service';
   imports: [SharedModule],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.scss',
-  schemas:[CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CategoriesComponent implements OnInit {
   constructor(private _booksData:BooksDataService){}

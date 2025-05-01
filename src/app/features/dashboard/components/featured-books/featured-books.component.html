@@ -1,17 +1,26 @@
-<section>
-    <h1>featuredBooks</h1>
-    <swiper-container
-  slides-per-view="3"
-  style="width: 100%; height: 300px;"
-  navigation="true"
-  loop="true"
->
-
-@for ( i of featuredBooks; track $index) {
-<swiper-slide>
-        <p>{{i.name}}</p>
-        </swiper-slide>
-   }
-</swiper-container>
+<section class="w-full bg-[rgba(252,236,236,1)]">
+    <div class="text-center">
+      <p class="my-3 text-[rgba(122,122,122,1)]">Some quality items</p>
+      <p class="my-3 text-3xl text-[rgba(57,50,128,1)]">New Release Books</p>
+    </div>
+    <div class="flex flex-wrap">
+      @for (book of featuredBooks ; track $index) {
+        
+        <div class="w-1/5 p-5 relative" id="book">
+          <button  (click)="AddtoCard({ book: book._id, quantity: 1 })"  id="Btn-Add" class="text-white bg-[rgba(237,85,59,1)] p-2">add to cart</button>
+          <div class="p-5 bg-white text-center">
+            <img class="w-full" src="../../../../../assets/images/book3 4.png"  [alt]="`${book.author}'s book photo`"></div>
+            <div class="text-center">
+              <p class="text-4xl text-[rgba(57,50,128,1)] my-3">{{book.name}}</p>
+              <p class="text-[rgba(57,50,128,1)] my-3">{{book.author}}</p>
+              <p class="text-[rgba(57,50,128,1)] my-3">{{book.price}} $</p>
+            </div>
+        </div>
+      }
+    </div>
 </section>
-
+<!-- 
+تعديلات 
+هشوف صوره عدلة والريسبونس
+والشكل والسلايدر
+-->
